@@ -46,6 +46,30 @@ Users should be able to:
 - Mobile-first workflow
 
 Created the boiler plate React code using `npx create-react-app`.
+Then I cleaned up the boiler plate code.
+
+Set up the react app to publish on github pages:
+
+* add `homepage` to `package.json`
+	```json
+	"homepage": "https://nathanieladiah.github.io/social-proof",
+	```
+* Install `gh-pages`
+	```
+	`npm install --save gh-pages`
+	```
+
+* Add `predeploy` and `deploy` to scripts in `package.json`
+	```json
+	"scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
+	}
+	```
+
+* then the site can be deployed with `npm run deploy`
+
+* ensure the github pages is set to use `gh-pages` branch.
 
 
 ### What I learned
