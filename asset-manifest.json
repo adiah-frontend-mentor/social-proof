@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/social-proof/static/css/main.df46f7da.css",
+    "main.css": "/social-proof/static/css/main.cb08bc54.css",
     "main.js": "/social-proof/static/js/main.bed90f3c.js",
     "index.html": "/social-proof/index.html",
-    "main.df46f7da.css.map": "/social-proof/static/css/main.df46f7da.css.map",
+    "static/media/bg-pattern-bottom-desktop.svg": "/social-proof/static/media/bg-pattern-bottom-desktop.32aa6571dc718836bdfc.svg",
+    "static/media/bg-pattern-bottom-mobile.svg": "/social-proof/static/media/bg-pattern-bottom-mobile.593835ec67fd27ee2a62.svg",
+    "static/media/bg-pattern-top-desktop.svg": "/social-proof/static/media/bg-pattern-top-desktop.9d4ba9c9b19e4c6be1e6.svg",
+    "static/media/bg-pattern-top-mobile.svg": "/social-proof/static/media/bg-pattern-top-mobile.58eed600d32e18ece9dc.svg",
+    "main.cb08bc54.css.map": "/social-proof/static/css/main.cb08bc54.css.map",
     "main.bed90f3c.js.map": "/social-proof/static/js/main.bed90f3c.js.map"
   },
   "entrypoints": [
-    "static/css/main.df46f7da.css",
+    "static/css/main.cb08bc54.css",
     "static/js/main.bed90f3c.js"
   ]
 }
