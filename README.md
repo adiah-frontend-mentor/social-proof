@@ -72,6 +72,40 @@ Set up the react app to publish on github pages:
 * ensure the github pages is set to use `gh-pages` branch.
 
 
+Determine the reusable components in the design, in this case the testimonial cards and the rating boxes.
+
+I made custom components for each of them and imported to the base app.
+
+Then I started creating the markup in the App component, calling the custom components and passing in props for the details.
+
+```jsx
+const ratingElements = ratingData.map(rating => 
+    <Rating 
+      rating={rating.rating} 
+      category={rating.category}
+    />
+  );
+```
+
+Then I wrote the components to display the correct data.
+
+Create a component for the star, with a prop of filled as a boolean.
+So that I could do some sort of loop to have the correct number filled in according to the rating.
+
+I'm thinking a loop like:
+
+for rating 
+	<Star filled=true />
+for 5 - rating
+	<Star filled=false />
+
+Use inline svg to change the fill value conditionally based on the filled prop.
+
+Once all the props worked to load the correct data, style the app.
+
+Using css
+
+
 ### What I learned
 
 I wanted to practice an architecture for sass, so I split the styling into partials even though it may have been
