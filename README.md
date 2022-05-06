@@ -105,7 +105,7 @@ Use inline svg to change the fill value conditionally based on the filled prop.
 
 Once all the props worked to load the correct data, style the app.
 
-Using scss
+Using scss.
 
 
 ### What I learned

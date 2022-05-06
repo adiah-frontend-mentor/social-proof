@@ -1,12 +1,37 @@
+@use '../../sass/abstracts/' as abs;
+
 .testimonials {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
 
+	@include abs.breakpoint(medium) {
+		grid-area: testimonials;
+		flex-direction: row;
+		align-self: stretch;
+	}
+
 	.testimonial {
 		padding: 2.5rem 0.875rem 2rem 2rem;
 		border-radius: 9px;
 		background-color: var(--clr-dark);
+
+		@include abs.breakpoint(medium) {
+			height: 235px;
+
+			&:first-child{
+				align-self: start;
+			}
+
+			&:nth-child(2) {
+				align-self: center;
+			}
+
+			&:last-child {
+				align-self: end;
+			}
+		}
+		
 
 		&__header {
 			display: grid;

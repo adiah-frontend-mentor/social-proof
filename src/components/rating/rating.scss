@@ -8,6 +8,11 @@
 	gap: 1rem;
 	margin-bottom: abs.rem(50);
 
+	@include abs.breakpoint(medium) {
+		grid-area: ratings;
+		margin-bottom: 0;
+	}
+
 	.rating-box {
 		display: flex;
 		flex-direction: column;
@@ -17,6 +22,25 @@
 		color: var(--clr-dark);
 		padding-block: 1rem;
 		border-radius: 10px;
+
+		@include abs.breakpoint(medium) {
+			flex-direction: row;
+			padding-inline: 2rem;
+			gap: 1.65rem;
+			width: 86%;
+
+			&:first-child {
+				align-self: start;
+			}
+
+			&:nth-child(2) {
+				align-self: center;
+			}
+
+			&:last-child {
+				align-self: end;
+			}
+		}
 
 		.star-container {
 			display: flex;
