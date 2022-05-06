@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/social-proof/static/js/main.a9d7c201.js",
+    "main.css": "/social-proof/static/css/main.293e8cf2.css",
+    "main.js": "/social-proof/static/js/main.bed90f3c.js",
     "index.html": "/social-proof/index.html",
-    "main.a9d7c201.js.map": "/social-proof/static/js/main.a9d7c201.js.map"
+    "main.293e8cf2.css.map": "/social-proof/static/css/main.293e8cf2.css.map",
+    "main.bed90f3c.js.map": "/social-proof/static/js/main.bed90f3c.js.map"
   },
   "entrypoints": [
-    "static/js/main.a9d7c201.js"
+    "static/css/main.293e8cf2.css",
+    "static/js/main.bed90f3c.js"
   ]
 }
