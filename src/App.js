@@ -1,3 +1,5 @@
+import Rating from "./components/Rating";
+import Testimonial from "./components/Testimonial";
 
 function App() {
   return (
