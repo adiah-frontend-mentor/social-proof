@@ -1,0 +1,33 @@
+@use '../../sass/abstracts/'  as abs;
+
+.ratings {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 1rem;
+	margin-bottom: abs.rem(50);
+
+	.rating-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: var(--clr-light);
+		color: var(--clr-dark);
+		padding-block: 1rem;
+		border-radius: 10px;
+
+		.star-container {
+			display: flex;
+			gap: 0.5rem
+		}
+
+		p {
+			font-size: 1rem;
+			font-weight: 700;
+			letter-spacing: 0.05px;
+			line-height: 1.6;
+		}
+	}
+}

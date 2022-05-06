@@ -94,16 +94,18 @@ So that I could do some sort of loop to have the correct number filled in accord
 
 I'm thinking a loop like:
 
+```
 for rating 
 	<Star filled=true />
 for 5 - rating
 	<Star filled=false />
+```
 
 Use inline svg to change the fill value conditionally based on the filled prop.
 
 Once all the props worked to load the correct data, style the app.
 
-Using css
+Using scss
 
 
 ### What I learned

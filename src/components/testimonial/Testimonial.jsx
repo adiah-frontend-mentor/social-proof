@@ -6,6 +6,7 @@ const Testimonial = ({name, image, message}) => {
             <div className='testimonial__header'>
                 <img src={image} alt={`${name} avatar`} />
                 <h2>{name}</h2>
+                <p>Verified Buyer</p>
             </div>
             <p className="testimonial__body">{message}</p>
         </div>

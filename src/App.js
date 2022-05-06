@@ -59,7 +59,7 @@ function App() {
   )
 
   return (
-    <>
+    <div className="page-wrapper">
     <div className="hero">
       <h1>10,000+ of our users love our products.</h1>
       <p>
@@ -73,7 +73,7 @@ function App() {
     <div className="testimonials">
       {testimonialList}
     </div>
-    </>
+    </div>
   );
 }
 
