@@ -11,7 +11,6 @@ This is a solution to the [Social proof section challenge on Frontend Mentor](ht
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -43,6 +42,7 @@ Users should be able to:
 - React
 - SCSS
 - Flexbox
+- CSS Grid
 - Mobile-first workflow
 
 Created the boiler plate React code using `npx create-react-app`.
@@ -110,150 +110,52 @@ Using scss.
 
 ### What I learned
 
-I wanted to practice an architecture for sass, so I split the styling into partials even though it may have been
-a bit of overkill for this project.
+I created a loop to add star components based on the rating imported from the props
 
-The javascript for displaying and hiding the dropdowns wasn't difficult, just selecting and changing attributes to
-change the display from none to either block or flexbox or grid.
+```jsx
+  for (let i = 0; i < rating; i++) {
+    stars.push(<Star filled={true} key={i}/>)
+  }
 
-```js
-navToggle.onclick = () => {
-	const visibility = nav.dataset.visible
-
-	if (visibility === "false") {
-		nav.dataset.visible = 'true';
-		navToggle.setAttribute('aria-expanded', true);
-		header.dataset.overlay = 'true';
-		body.classList.add('noscroll');
-
-	} else {
-		header.dataset.overlay = 'false';
-		nav.dataset.visible = 'false';
-		navToggle.setAttribute('aria-expanded', false);
-		body.classList.remove('noscroll');
-	}
-}
+  for (let i = 0; i < 5-rating; i++) {
+    stars.push(<Star filled={false} key={i + rating}/>)
+  }
 ```
 
-But animating the drop down menus so that they didn't just appear and disappear.
+Then with the `filled` attribute passed as a prop, I was able to manipulate the fill of the star svg:
 
-So i created keyframe animations to fade in and fade out
+```jsx
+<svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
+	<path
+		d="M16.539 6.097a.297.297 0 00-.24-.202l-5.36-.779L8.542.26a.296.296 0 00-.53 0L5.613 5.117l-5.36.779a.297.297 0 00-.165.505l3.88 3.78-.917 5.34a.297.297 0 00.43.312l4.795-2.52 4.794 2.52a.296.296 0 00.43-.313l-.916-5.338L16.464 6.4c.08-.08.11-.197.075-.304z"
+		fill={filled ? "#EF9546" : "#DDDDDD"}
+		fillRule="nonzero"
+	/>
+</svg>
+```
+
+For the staggered appearance of the rating cards and testimonials I made use of flexbox and the align-self property:
 
 ```scss
-@keyframes fade-in {
-	0% {
-		opacity: 0;
-		transform: scale(0);
+@include abs.breakpoint(medium) {
+	&:first-child{
+		align-self: start;
 	}
 
-	100% {
-		opacity: 1;
-		transform: scale(1);
+	&:nth-child(2) {
+		align-self: center;
 	}
-}
 
-
-@keyframes fade-out {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
+	&:last-child {
+		align-self: end;
 	}
 }
 ```
-
-This let them fade in with
-
-```scss
-&[data-visible='true'] {
-  display: grid;
-  animation: fade-in 700ms forwards,
-}
-```
-
-To get them to fade out I added another attribute to act as an intermediate to allow it to fade out before the display gets switched to none.
-
-I used JavaScript to apply it on click.
-
-```js
-dropToggles.forEach(toggle => {
-	toggle.onclick = () => {
-		const dropdownId = toggle.getAttribute('aria-controls');
-		const dropdown = document.getElementById(dropdownId);
-
-		const visibility = dropdown.dataset.visible;
-
-		if (visibility === "false") {
-			dropdown.dataset.visible = 'true';
-			toggle.setAttribute('aria-expanded', true);
-
-		} else {
-			dropdown.setAttribute('closing', '');
-
-			dropdown.addEventListener('animationend', () => {
-				dropdown.removeAttribute('closing');
-				dropdown.dataset.visible = 'false';
-				toggle.setAttribute('aria-expanded', false);
-			}, {once: true});
-		}
-
-	}
-})
-```
-
-Only after the animation ends on the closing attribute are the other conditions set to false to change the display back to none.
-
-Here's how I selected it:
-
-```scss
-&[closing] {
-  transform: translateX(0);
-  pointer-events: none;
-  inset: 0;
-  animation: fade-out 500ms forwards, remove-space 700ms forwards;
-}
-```
-
-This makes the dropdowns fade in and out, but the item below still drops suddenly in the mobile nav for the new dropdown to fit
-
-```scss
-@keyframes add-space {
-	0% {
-		max-height: 0;
-		margin-bottom: 0;
-	}
-
-	100% {
-		max-height: 9.8rem;
-		margin-bottom: 2rem;
-	}
-
-}
-
-@keyframes remove-space {
-	0% {
-		max-height: 9.8rem;
-		margin-bottom: 2rem;
-	}
-	100% {
-		max-height: 0;
-		margin-bottom: 0;
-	}
-}
-```
-
-By animating the height and margin of the incoming dropdown, the elements below gradually slide down and up to accommodate it.
-
-### Continued development
-
 
 ### Useful resources
 
 - [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) - 
 This is a great resource for seeing all the CSS grid properties and options visually.
-
-- [Animate from display none](https://www.youtube.com/watch?v=4prVdA7_6u0) - A YouTube video by Kevin Powell. He explains how he goes about animating a dialog modal from display none.
 
 
 

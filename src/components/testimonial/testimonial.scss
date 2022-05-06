@@ -17,7 +17,7 @@
 		background-color: var(--clr-dark);
 
 		@include abs.breakpoint(medium) {
-			height: 235px;
+			height: abs.rem(235);
 
 			&:first-child{
 				align-self: start;
@@ -35,8 +35,8 @@
 
 		&__header {
 			display: grid;
-			grid-template-columns: 40px 1fr;
-			grid-template-rows: 20px 20px;
+			grid-template-columns: 2.5rem 1fr;
+			grid-template-rows: 1.25rem 1.25rem;
 			grid-template-areas:
 			 'image name'
 			 'image tag';

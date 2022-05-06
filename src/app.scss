@@ -13,8 +13,8 @@
 		margin-inline: auto;
 
 		display: grid;
-		grid-template-columns: 40% 50%; //432px (40%) | 139px 10%| 539px (50%)
-		grid-template-rows: 1fr 267px;//0.48fr 0.52fr;
+		grid-template-columns: 40% 50%; 
+		grid-template-rows: 1fr abs.rem(267);
 		grid-template-areas: 
 			'hero ratings'
 			'testimonials testimonials';
