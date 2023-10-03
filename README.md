@@ -1,6 +1,6 @@
 # Frontend Mentor - Social proof section solution
 
-This is a solution to the [Social proof section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-proof-section-6e0qTv_bA). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Social proof section challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/social-proof-section-6e0qTv_bA). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -14,7 +14,6 @@ This is a solution to the [Social proof section challenge on Frontend Mentor](ht
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
-
 ## Overview
 
 ### The challenge
@@ -27,11 +26,10 @@ Users should be able to:
 
 ![Screenshot](./screenshot.png)
 
-
 ### Links
 
-- Solution URL: [github.com/nathanieladiah/social-proof](https://github.com/nathanieladiah/social-proof)
-- Live Site URL: [nathanieladiah.github.io/social-proof](https://nathanieladiah.github.io/social-proof)
+- Solution URL: [https://github.com/adiah-frontend-mentor/social-proof](https://github.com/adiah-frontend-mentor/social-proof)
+- Live Site URL: [https://adiah-frontend-mentor.github.io/social-proof/](https://adiah-frontend-mentor.github.io/social-proof/)
 
 ## My process
 
@@ -50,27 +48,28 @@ Then I cleaned up the boiler plate code.
 
 Set up the react app to publish on github pages:
 
-* add `homepage` to `package.json`
-	```json
-	"homepage": "https://nathanieladiah.github.io/social-proof",
-	```
-* Install `gh-pages`
-	```
-	`npm install --save gh-pages`
-	```
+- add `homepage` to `package.json`
+  ```json
+  "homepage": "https://nathanieladiah.github.io/social-proof",
+  ```
+- Install `gh-pages`
 
-* Add `predeploy` and `deploy` to scripts in `package.json`
-	```json
-	"scripts": {
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
-	}
-	```
+  ```
+  `npm install --save gh-pages`
+  ```
 
-* then the site can be deployed with `npm run deploy`
+- Add `predeploy` and `deploy` to scripts in `package.json`
 
-* ensure the github pages is set to use `gh-pages` branch.
+  ```json
+  "scripts": {
+  	"predeploy": "npm run build",
+  	"deploy": "gh-pages -d build",
+  }
+  ```
 
+- then the site can be deployed with `npm run deploy`
+
+- ensure the github pages is set to use `gh-pages` branch.
 
 Determine the reusable components in the design, in this case the testimonial cards and the rating boxes.
 
@@ -79,12 +78,9 @@ I made custom components for each of them and imported to the base app.
 Then I started creating the markup in the App component, calling the custom components and passing in props for the details.
 
 ```jsx
-const ratingElements = ratingData.map(rating => 
-    <Rating 
-      rating={rating.rating} 
-      category={rating.category}
-    />
-  );
+const ratingElements = ratingData.map((rating) => (
+  <Rating rating={rating.rating} category={rating.category} />
+));
 ```
 
 Then I wrote the components to display the correct data.
@@ -95,7 +91,7 @@ So that I could do some sort of loop to have the correct number filled in accord
 I'm thinking a loop like:
 
 ```
-for rating 
+for rating
 	<Star filled=true />
 for 5 - rating
 	<Star filled=false />
@@ -107,30 +103,29 @@ Once all the props worked to load the correct data, style the app.
 
 Using scss.
 
-
 ### What I learned
 
 I created a loop to add star components based on the rating imported from the props
 
 ```jsx
-  for (let i = 0; i < rating; i++) {
-    stars.push(<Star filled={true} key={i}/>)
-  }
+for (let i = 0; i < rating; i++) {
+  stars.push(<Star filled={true} key={i} />);
+}
 
-  for (let i = 0; i < 5-rating; i++) {
-    stars.push(<Star filled={false} key={i + rating}/>)
-  }
+for (let i = 0; i < 5 - rating; i++) {
+  stars.push(<Star filled={false} key={i + rating} />);
+}
 ```
 
 Then with the `filled` attribute passed as a prop, I was able to manipulate the fill of the star svg:
 
 ```jsx
 <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
-	<path
-		d="M16.539 6.097a.297.297 0 00-.24-.202l-5.36-.779L8.542.26a.296.296 0 00-.53 0L5.613 5.117l-5.36.779a.297.297 0 00-.165.505l3.88 3.78-.917 5.34a.297.297 0 00.43.312l4.795-2.52 4.794 2.52a.296.296 0 00.43-.313l-.916-5.338L16.464 6.4c.08-.08.11-.197.075-.304z"
-		fill={filled ? "#EF9546" : "#DDDDDD"}
-		fillRule="nonzero"
-	/>
+  <path
+    d="M16.539 6.097a.297.297 0 00-.24-.202l-5.36-.779L8.542.26a.296.296 0 00-.53 0L5.613 5.117l-5.36.779a.297.297 0 00-.165.505l3.88 3.78-.917 5.34a.297.297 0 00.43.312l4.795-2.52 4.794 2.52a.296.296 0 00.43-.313l-.916-5.338L16.464 6.4c.08-.08.11-.197.075-.304z"
+    fill={filled ? "#EF9546" : "#DDDDDD"}
+    fillRule="nonzero"
+  />
 </svg>
 ```
 
@@ -138,26 +133,24 @@ For the staggered appearance of the rating cards and testimonials I made use of 
 
 ```scss
 @include abs.breakpoint(medium) {
-	&:first-child{
-		align-self: start;
-	}
+  &:first-child {
+    align-self: start;
+  }
 
-	&:nth-child(2) {
-		align-self: center;
-	}
+  &:nth-child(2) {
+    align-self: center;
+  }
 
-	&:last-child {
-		align-self: end;
-	}
+  &:last-child {
+    align-self: end;
+  }
 }
 ```
 
 ### Useful resources
 
-- [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) - 
-This is a great resource for seeing all the CSS grid properties and options visually.
-
-
+- [CSS-Tricks: A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) -
+  This is a great resource for seeing all the CSS grid properties and options visually.
 
 ## Author
 
